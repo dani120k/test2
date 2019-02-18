@@ -17,7 +17,11 @@ public class PersonServiceImpl {
     }
 
     public Person add(Person person){
-        return repository.save(person);
+        try {
+            return repository.save(person);
+        } catch (Exception ex){
+            return null;
+        }
     }
 
     public void deletePerson(Person person){
@@ -25,12 +29,11 @@ public class PersonServiceImpl {
     }
 
     public Person findByEmail(String email){
-        System.out.println(email);
         Person personList = repository.findByEmail(email);
         if (personList!= null)
             return personList;
         else
-            return new Person();
+            return null;
     }
 
 }
