@@ -1,7 +1,5 @@
 package com.test2.test2.model;
 
-import org.hibernate.annotations.ColumnDefault;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,6 +9,9 @@ public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "product_id")
+    private Long product_id;
 
     @Column(name = "price")
     private Long price;
@@ -24,6 +25,22 @@ public class Price {
 
     @Column(name = "creation_date")
     private Date creation_date;
+
+    public Long getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Long product_id) {
+        this.product_id = product_id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Date getCreation_date() {
         return creation_date;

@@ -4,6 +4,7 @@ import com.test2.test2.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,8 +25,18 @@ public class ProductServiceImpl {
         }
     }
 
+    public Product update(Product product){
+        try{
+            return repository.save(product);
+        }catch (Exception ex){
+            return null;
+        }
+    }
+
     public void deletePerson(Product product){
         repository.delete(product);
     }
+
+    public Product findByName(String name){return repository.findByName(name);}
 
 }
