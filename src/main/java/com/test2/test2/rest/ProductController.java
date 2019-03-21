@@ -7,6 +7,8 @@ import com.test2.test2.service.ProductServiceImpl;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -17,6 +19,8 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/getAll")
     public String getAll(){
+        Date date = new Date();
+
         List<Product> products = productService.getAll();
         return new Gson().toJson(products);
     }
@@ -29,6 +33,11 @@ public class ProductController {
             return new Gson().toJson(addedProduct);
         else
             return new Gson().toJson("Product with this name is already exist");
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/add")
+    public String deleteProduct(@RequestParam String name){
+
     }
 
 
