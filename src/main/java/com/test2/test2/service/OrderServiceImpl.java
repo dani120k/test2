@@ -1,6 +1,6 @@
 package com.test2.test2.service;
 
-import com.test2.test2.model.Price;
+import com.test2.test2.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,16 +8,16 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class PriceServiceImpl {
+public class OrderServiceImpl {
 
     @Autowired
-    private PriceService repository;
+    private OrderService repository;
 
-    public List<Price> getAll() {
-        return (List<Price>)repository.findAll();
+    public List<Order> getAll() {
+        return (List<Order>)repository.findAll();
     }
 
-    public Price add(Price product){
+    public Order add(Order product){
         try {
             return repository.save(product);
         } catch (Exception ex){
@@ -25,10 +25,7 @@ public class PriceServiceImpl {
         }
     }
 
-    public void deletePerson(Price product){
+    public void deletePerson(Order product){
         repository.delete(product);
     }
-
-    public Price findPriceForDate(Date date, Long id){return repository.findPriceForDate(date, id);}
-
 }

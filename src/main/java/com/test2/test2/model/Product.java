@@ -11,27 +11,20 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    private Long price;
+
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Price> priceList;
+    private Long category;
 
-    public List<Price> getPriceList() {
-        return priceList;
+    private String pathToImage;
+
+    public Long getCategory() {
+        return category;
     }
 
-    public void setPriceList(List<Price> priceList) {
-        this.priceList = priceList;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(Long category) {
+        this.category = category;
     }
 
     public Long getId() {
@@ -41,5 +34,30 @@ public class Product {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPathToImage() {
+        return pathToImage;
+    }
+
+    public void setPathToImage(String pathToImage) {
+        this.pathToImage = pathToImage;
+    }
+
 
 }

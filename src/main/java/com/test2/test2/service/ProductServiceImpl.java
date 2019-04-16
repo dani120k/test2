@@ -18,25 +18,19 @@ public class ProductServiceImpl {
     }
 
     public Product add(Product product){
-        try {
-            return repository.save(product);
-        } catch (Exception ex){
-            return null;
-        }
+        return repository.save(product);
     }
 
     public Product update(Product product){
-        try{
-            return repository.save(product);
-        }catch (Exception ex){
-            return null;
-        }
+        return repository.save(product);
     }
 
     public void deletePerson(Product product){
         repository.delete(product);
     }
 
-    public Product findByName(String name){return repository.findByName(name);}
+    public List<Product> getByCategoryId(Long id){
+        return repository.findAllByCategory(id);
+    }
 
 }
