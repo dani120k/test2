@@ -17,7 +17,17 @@ public class Product {
 
     private Long category;
 
+    private String desc;
+
     private String pathToImage;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     public Long getCategory() {
         return category;
