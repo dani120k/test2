@@ -10,4 +10,7 @@ import java.util.List;
 
 public interface ProductService extends CrudRepository<Product, Long> {
     List<Product> findAllByCategory(Long id);
+
+    @Query(value = "SELECT * FROM product WHERE product.name=(?1)", nativeQuery = true)
+    Product findByName(String name);
 }

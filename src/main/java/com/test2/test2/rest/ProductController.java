@@ -23,6 +23,7 @@ public class ProductController {
     @Autowired
     CategoryServiceImpl categoryService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET, value = "/getAll")
     public String getAll(@RequestParam String name){
         System.out.println(name);
@@ -31,6 +32,7 @@ public class ProductController {
         return new Gson().toJson(products);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public String add(@RequestBody Product product, @RequestParam String name){
         Category category = categoryService.findByName(name);
@@ -39,9 +41,13 @@ public class ProductController {
         return new Gson().toJson(productService.getByCategoryId(category.getId()));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/add")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET, value = "/delete")
     public String deleteProduct(@RequestParam String name){
-        return "delete";
+        Product product = productService.findByName(name);
+        if (product != null)
+            productService.deletePerson(product);
+        return "hi";
     }
 
 

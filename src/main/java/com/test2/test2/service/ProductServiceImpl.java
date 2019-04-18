@@ -33,4 +33,6 @@ public class ProductServiceImpl {
         return repository.findAllByCategory(id);
     }
 
+    public Product findByName(String name){return repository.findByName(name);}
+
 }

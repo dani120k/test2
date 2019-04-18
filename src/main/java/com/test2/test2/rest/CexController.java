@@ -13,12 +13,14 @@ public class CexController {
     @Autowired
     private CexServiceImpl cexService;
 
+    @CrossOrigin(origins = "localhost:3000")
     @PostMapping(value = "/add")
     public String addNewCex(@RequestBody Cex cex){
         cexService.add(cex);
         return new Gson().toJson(cex);
     }
 
+    @CrossOrigin(origins = "localhost:3000")
     @GetMapping(value = "/getAll")
     public String getAll(){
         return new Gson().toJson(cexService.getAll());
