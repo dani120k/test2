@@ -3,15 +3,16 @@ package com.test2.test2.rest;
 
 import com.google.gson.Gson;
 import com.test2.test2.model.Category;
+import com.test2.test2.model.Cex;
 import com.test2.test2.model.Product;
-import com.test2.test2.service.CategoryService;
 import com.test2.test2.service.CategoryServiceImpl;
-import com.test2.test2.service.OrderServiceImpl;
+import com.test2.test2.service.CexServiceImpl;
 import com.test2.test2.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -22,6 +23,9 @@ public class ProductController {
 
     @Autowired
     CategoryServiceImpl categoryService;
+
+    @Autowired
+    CexServiceImpl cexService;
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET, value = "/getAll")
@@ -49,6 +53,24 @@ public class ProductController {
             productService.deletePerson(product);
         return "hi";
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET, value = "/addCexToProduct")
+    public String addCexToProduct(@RequestParam String name, @RequestParam String cex){
+        try {
+            Cex currCex = cexService.findByName(cex);
+            Product product = productService.findByName(name);
+            Set<Cex> cexSet = product.getCexSet();
+            cexSet.add(currCex);
+            product.setCexSet(cexSet);
+            productService.add(product);
+            System.out.println(cexSet.toArray().toString());
+        }catch (Exception ex){
+
+        }
+        return "hi";
+    }
+
 
 
 

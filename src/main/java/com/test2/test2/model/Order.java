@@ -12,6 +12,10 @@ public class Order {
 
     private Long totalPrice;
 
+    private Date date;
+
+
+
     public Long getId() {
         return id;
     }
@@ -26,5 +30,13 @@ public class Order {
 
     public void setTotalPrice(Long totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

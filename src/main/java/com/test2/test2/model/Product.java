@@ -3,6 +3,7 @@ package com.test2.test2.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -21,6 +22,17 @@ public class Product {
 
     private String pathToImage;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable
+    private Set<Cex> cexSet;
+
+    public Set<Cex> getCexSet() {
+        return cexSet;
+    }
+
+    public void setCexSet(Set<Cex> cexSet) {
+        this.cexSet = cexSet;
+    }
 
     public String getDesc() {
         return desc;
