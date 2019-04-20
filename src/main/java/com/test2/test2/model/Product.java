@@ -21,7 +21,6 @@ public class Product {
 
     private String pathToImage;
 
-    private CexOrder cexOrder;
 
     public String getDesc() {
         return desc;
@@ -71,11 +70,4 @@ public class Product {
         this.pathToImage = pathToImage;
     }
 
-    public CexOrder getCexOrder() {
-        return cexOrder;
-    }
-
-    public void setCexOrder(CexOrder cexOrder) {
-        this.cexOrder = cexOrder;
-    }
 }
