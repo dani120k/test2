@@ -4,17 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long totalPrice;
+    private Long totalprice;
 
     private Date date;
-
-
 
     public Long getId() {
         return id;
@@ -24,12 +22,12 @@ public class Order {
         this.id = id;
     }
 
-    public Long getTotalPrice() {
-        return totalPrice;
+    public Long getTotalprice() {
+        return totalprice;
     }
 
-    public void setTotalPrice(Long totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalprice(Long totalprice) {
+        this.totalprice = totalprice;
     }
 
     public Date getDate() {

@@ -11,7 +11,8 @@ public class Category {
 
     private String name;
 
-    private String desc;
+    private String description;
+
 
     public Long getId() {
         return id;
@@ -30,10 +31,10 @@ public class Category {
     }
 
     public String getDesc() {
-        return desc;
+        return description;
     }
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.description = desc;
     }
 }

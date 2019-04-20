@@ -30,7 +30,10 @@ public class CexServiceImpl {
     }
 
     public Cex findByName(String name){
-        System.out.println(name);
         return repository.findByName(name);
+    }
+
+    public Cex findById(Long id){
+        return repository.findOneById(id);
     }
 }
