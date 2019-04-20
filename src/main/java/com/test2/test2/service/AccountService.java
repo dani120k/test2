@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AccountService extends CrudRepository<Account, Long> {
     Account findByName(String name);
+
+    Account findOneById(Long id);
 }

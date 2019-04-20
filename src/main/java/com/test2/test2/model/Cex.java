@@ -11,7 +11,8 @@ public class Cex {
 
     private String name;
 
-    private Long account_id;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Account account;
 
     public Long getId() {
         return id;
@@ -29,11 +30,11 @@ public class Cex {
         this.name = name;
     }
 
-    public Long getAccount_id() {
-        return account_id;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setAccount_id(Long account_id) {
-        this.account_id = account_id;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
