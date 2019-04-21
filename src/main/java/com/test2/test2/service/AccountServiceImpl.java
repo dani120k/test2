@@ -34,4 +34,6 @@ public class AccountServiceImpl {
     }
 
     public Account findById(Long id){return repository.findOneById(id);}
+
+    public List<Account> findByType(Long id){return repository.findByType(id);}
 }
